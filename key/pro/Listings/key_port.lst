@@ -1,0 +1,99 @@
+C51 COMPILER V9.59.0.0   KEY_PORT                                                          04/03/2019 13:30:17 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE KEY_PORT
+OBJECT MODULE PLACED IN .\Objects\key_port.obj
+COMPILER INVOKED BY: E:\MDK\C51\BIN\C51.EXE ..\bsp\key\key_port.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\bsp\key;..\bsp\key;
+                    -..\lib;..\TimeOut;..\user;..\bsp;..\TimeOut) DEBUG OBJECTEXTEND PRINT(.\Listings\key_port.lst) TABS(7) OBJECT(.\Objects\
+                    -key_port.obj)
+
+line level    source
+
+   1          //#include "sys_config.h"
+   2          #include "sc92f732x_c.h"
+   3          
+   4          #if 0
+              #define KEY1_PIN                                        P00   //head_up
+              #define KEY2_PIN                                        P21   //head_down
+              #define KEY3_PIN                                        P03   //reset
+              #define KEY4_PIN                                        P02   //open
+              #define KEY5_PIN                                        P20   //close
+              #define KEY6_PIN                                        P01   //heat_on/heat_off
+              #define KEY7_PIN                                        P22   //mass_on/mass_off
+              #else
+  13          
+  14          #define    KEY1_PIN          P21 
+  15          
+  16          
+  17          #endif
+  18          unsigned char Key_Port_Read(unsigned char num){
+  19   1             #if 0
+                     if(num == 1){
+                            return KEY1_PIN;
+                     }else if(num == 2){
+                            return KEY2_PIN;
+                     }else if(num == 3){
+                            return KEY3_PIN;
+                     }else if(num == 4){
+                            return KEY4_PIN;
+                     }else if(num == 5){
+                            return KEY5_PIN;
+                     }else if(num == 6){
+                            return KEY6_PIN;
+                     }else if(num == 7){
+                            return KEY7_PIN;
+                     }else{
+                            return 0XFF;
+                     }
+                     #else
+  38   1             if(num == 1){
+  39   2                    return KEY1_PIN;
+  40   2              }else{
+  41   2                   return 0xff;
+  42   2              }
+  43   1             #endif
+  44   1      }
+  45          
+  46          unsigned char Key_Port_Init(void){
+  47   1             #if 0
+                     CLR_REG_CON(0, 0);
+                     SET_IO_PU(0, 0);
+                     
+                     CLR_REG_CON(0, 1);
+                     SET_IO_PU(0, 1);
+                     
+C51 COMPILER V9.59.0.0   KEY_PORT                                                          04/03/2019 13:30:17 PAGE 2   
+
+                     CLR_REG_CON(0, 2);
+                     SET_IO_PU(0, 2);
+                            
+                     CLR_REG_CON(0, 3);
+                     SET_IO_PU(0, 3);
+                     
+                     CLR_REG_CON(2, 0);
+                     SET_IO_PU(2, 0);
+                     
+                     CLR_REG_CON(2, 1);
+                     SET_IO_PU(2, 1);
+                     
+                     CLR_REG_CON(2, 2);
+                     SET_IO_PU(2, 2);
+                     #endif
+  69   1             P2CON &= ~0X02;
+  70   1             P2PH    |= 0X02;
+  71   1             return 1;
+  72   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

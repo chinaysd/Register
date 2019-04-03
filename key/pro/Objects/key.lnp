@@ -1,0 +1,10 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\system.obj",
+".\Objects\bsp_led.obj",
+".\Objects\bsp_timer.obj",
+".\Objects\key.obj",
+".\Objects\key_port.obj",
+".\Objects\TimeOut.obj" 
+TO ".\Objects\key" 
+PRINT(".\Listings\key.m51") RAMSIZE(256) 

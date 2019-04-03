@@ -1,0 +1,539 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/03/2019  17:03:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\MDK\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\system.obj, .\Objects\bsp_led.obj, .\Object
+>> s\bsp_timer.obj, .\Objects\TimeOut.obj TO .\Objects\led PRINT (.\Listings\led.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  .\Objects\system.obj (SYSTEM)
+  .\Objects\bsp_led.obj (BSP_LED)
+  .\Objects\bsp_timer.obj (BSP_TIMER)
+  .\Objects\TimeOut.obj (TIMEOUT)
+  E:\MDK\C51\LIB\C51S.LIB (?C_INIT)
+  E:\MDK\C51\LIB\C51S.LIB (?C?ULCMP)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDOPTR)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LSTPTR)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LSTOPTR)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDPTR0)
+  E:\MDK\C51\LIB\C51S.LIB (?C?ICALL)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDIDATA)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDXDATA)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDPDATA)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDCODE)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDIDATA0)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDXDATA0)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDPDATA0)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LLDCODE0)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LSTIDATA)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LSTXDATA)
+  E:\MDK\C51\LIB\C51S.LIB (?C?LSTPDATA)
+
+
+LINK MAP OF MODULE:  .\Objects\led (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0015H     UNIT         ?DT?SYSTEM
+            DATA    001DH     0004H     UNIT         ?DT?TIMEOUT
+            DATA    0021H     0004H     UNIT         _DATA_GROUP_
+            IDATA   0025H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     000CH     UNIT         ?PR?_LED_REGISTER?SYSTEM
+            CODE    001AH     0001H     UNIT         ?PR?TIMER1?BSP_TIMER
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     000AH     UNIT         ?PR?TIMEOUTDET_INIT?TIMEOUT
+            CODE    0028H     0003H     UNIT         ?PR?TIMER2INT?BSP_TIMER
+            CODE    002BH     0003H     ABSOLUTE     
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 2
+
+
+            CODE    002EH     0133H     UNIT         ?C?LIB_CODE
+            CODE    0161H     008CH     UNIT         ?C_C51STARTUP
+            CODE    01EDH     0041H     UNIT         ?PR?TIMER0?BSP_TIMER
+            CODE    022EH     0035H     UNIT         ?PR?TIMER_INIT?BSP_TIMER
+            CODE    0263H     0030H     UNIT         ?PR?_TIMEOUTDET_CHECK?TIMEOUT
+            CODE    0293H     0025H     UNIT         ?PR?SYSTEM_HANDLE?SYSTEM
+            CODE    02B8H     001CH     UNIT         ?PR?_TIMEOUT_RECORD?TIMEOUT
+            CODE    02D4H     001AH     UNIT         ?PR?TIMEOUTDET_DECHANDLE?TIMEOUT
+            CODE    02EEH     0018H     UNIT         ?PR?SYSTEM_INIT?SYSTEM
+            CODE    0306H     0017H     UNIT         ?PR?LED_POLL?SYSTEM
+            CODE    031DH     0012H     UNIT         ?PR?_LED_FUNCTION?SYSTEM
+            CODE    032FH     0009H     UNIT         ?PR?LED_SCANF?SYSTEM
+            CODE    0338H     0009H     UNIT         ?PR?LED_INIT?BSP_LED
+            CODE    0341H     0009H     UNIT         ?PR?TIMEOUT_BASEVALUE?TIMEOUT
+            CODE    034AH     0007H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\led (?C_STARTUP)
+
+
+SEGMENT                                    DATA_GROUP 
+  +--> CALLED SEGMENT                    START    LENGTH
+--------------------------------------------------------
+?C_C51STARTUP                            -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                            -----    -----
+  +--> ?PR?SYSTEM_INIT?SYSTEM
+  +--> ?PR?SYSTEM_HANDLE?SYSTEM
+
+?PR?SYSTEM_INIT?SYSTEM                   -----    -----
+  +--> ?PR?TIMEOUTDET_INIT?TIMEOUT
+  +--> ?PR?LED_INIT?BSP_LED
+  +--> ?PR?_LED_FUNCTION?SYSTEM
+  +--> ?PR?_LED_REGISTER?SYSTEM
+  +--> ?PR?TIMER_INIT?BSP_TIMER
+
+?PR?SYSTEM_HANDLE?SYSTEM                 -----    -----
+  +--> ?PR?_TIMEOUTDET_CHECK?TIMEOUT
+  +--> ?PR?_TIMEOUT_RECORD?TIMEOUT
+  +--> ?PR?LED_POLL?SYSTEM
+
+?PR?_TIMEOUTDET_CHECK?TIMEOUT            0021H    0003H
+
+?PR?_TIMEOUT_RECORD?TIMEOUT              0021H    0004H
+  +--> ?PR?TIMEOUT_BASEVALUE?TIMEOUT
+
+*** NEW ROOT ***************************************************
+
+?PR?TIMER0?BSP_TIMER                     -----    -----
+  +--> ?PR?TIMEOUTDET_DECHANDLE?TIMEOUT
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 3
+
+
+   KEY_SCANF
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\led (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0161H         SEGMENT       ?C_C51STARTUP
+  I:0025H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0164H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0161H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0161H         LINE#         133
+  C:0163H         LINE#         134
+  C:0164H         LINE#         135
+  C:0165H         LINE#         136
+  C:0167H         LINE#         185
+  C:016AH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00D8H         PUBLIC        P5
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 4
+
+
+  C:0003H         LINE#         5
+  C:0003H         LINE#         6
+  C:0003H         LINE#         7
+  C:0006H         LINE#         8
+  C:0006H         LINE#         9
+  C:0006H         LINE#         10
+  C:0009H         LINE#         11
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        SYSTEM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:02EEH         PUBLIC        System_Init
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00D8H         PUBLIC        P5
+  D:00A8H         PUBLIC        IE
+  C:0306H         PUBLIC        Led_Poll
+  D:00B8H         PUBLIC        IP
+  D:00A2H         PUBLIC        P2PH
+  D:0009H         PUBLIC        Led_Msg
+  D:000AH         PUBLIC        TimeOut_Para
+  B:00A0H.1       PUBLIC        P21
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.7       PUBLIC        P17
+  C:0293H         PUBLIC        System_Handle
+  C:000EH         PUBLIC        _Led_Register
+  C:031DH         PUBLIC        _Led_Function
+  D:001AH         SYMBOL        _GetValueCb
+  D:00A1H         PUBLIC        P2CON
+  C:032FH         PUBLIC        Led_Scanf
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          LED_SCANF
+  C:032FH         LINE#         9
+  C:032FH         LINE#         10
+  C:032FH         LINE#         11
+  C:0332H         LINE#         12
+  C:0332H         LINE#         13
+  C:0335H         LINE#         14
+  C:0335H         LINE#         16
+  C:0335H         LINE#         17
+  C:0337H         LINE#         18
+  C:0337H         LINE#         19
+  -------         ENDPROC       LED_SCANF
+  -------         PROC          _LED_FUNCTION
+  D:0007H         SYMBOL        GetValue
+  C:031DH         LINE#         22
+  C:031DH         LINE#         23
+  C:031DH         LINE#         24
+  C:0323H         LINE#         25
+  C:0323H         LINE#         26
+  C:0325H         LINE#         27
+  C:0326H         LINE#         28
+  C:032CH         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 5
+
+
+  C:032CH         LINE#         30
+  C:032EH         LINE#         31
+  C:032EH         LINE#         32
+  -------         ENDPROC       _LED_FUNCTION
+  -------         PROC          _LED_REGISTER
+  D:0001H         SYMBOL        Cb
+  C:000EH         LINE#         34
+  C:000EH         LINE#         35
+  C:000EH         LINE#         36
+  C:0013H         LINE#         37
+  C:0013H         LINE#         38
+  C:0019H         LINE#         39
+  C:0019H         LINE#         40
+  -------         ENDPROC       _LED_REGISTER
+  -------         PROC          LED_POLL
+  C:0306H         LINE#         42
+  C:0306H         LINE#         43
+  C:0306H         LINE#         44
+  C:030BH         LINE#         45
+  C:0313H         LINE#         46
+  C:0313H         LINE#         47
+  C:031CH         LINE#         48
+  C:031CH         LINE#         49
+  -------         ENDPROC       LED_POLL
+  -------         PROC          SYSTEM_INIT
+  C:02EEH         LINE#         51
+  C:02EEH         LINE#         52
+  C:02EEH         LINE#         53
+  C:02F1H         LINE#         54
+  C:02F4H         LINE#         55
+  C:02F7H         LINE#         56
+  C:02FAH         LINE#         57
+  C:0303H         LINE#         58
+  -------         ENDPROC       SYSTEM_INIT
+  -------         PROC          SYSTEM_HANDLE
+  -------         DO            
+  D:0008H         SYMBOL        Cnts
+  -------         ENDDO         
+  C:0293H         LINE#         61
+  C:0293H         LINE#         62
+  C:0293H         LINE#         64
+  C:02A2H         LINE#         65
+  C:02A2H         LINE#         66
+  C:02B3H         LINE#         67
+  C:02B5H         LINE#         68
+  C:02B5H         LINE#         69
+  C:02B5H         LINE#         71
+  C:02B5H         LINE#         73
+  C:02B5H         LINE#         75
+  C:02B5H         LINE#         76
+  C:02B5H         LINE#         77
+  -------         ENDPROC       SYSTEM_HANDLE
+  -------         ENDMOD        SYSTEM
+
+  -------         MODULE        BSP_LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 6
+
+
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00D8H         PUBLIC        P5
+  C:0338H         PUBLIC        Led_Init
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0092H         PUBLIC        P1PH
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.7       PUBLIC        P17
+  D:0091H         PUBLIC        P1CON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          LED_INIT
+  C:0338H         LINE#         7
+  C:0338H         LINE#         8
+  C:0338H         LINE#         9
+  C:033BH         LINE#         10
+  C:033EH         LINE#         11
+  C:0340H         LINE#         12
+  -------         ENDPROC       LED_INIT
+  -------         ENDMOD        BSP_LED
+
+  -------         MODULE        BSP_TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:008EH         PUBLIC        TMCON
+  D:00D8H         PUBLIC        P5
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00CBH         PUBLIC        RCAP2H
+  D:00CAH         PUBLIC        RCAP2L
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  B:00A8H.5       PUBLIC        ET2
+  B:00C8H.7       PUBLIC        TF2
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  C:01EDH         PUBLIC        timer0
+  C:001AH         PUBLIC        timer1
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  B:00C8H.2       PUBLIC        TR2
+  C:0028H         PUBLIC        Timer2Int
+  D:00C9H         PUBLIC        T2MOD
+  D:00C8H         PUBLIC        T2CON
+  C:022EH         PUBLIC        Timer_Init
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          TIMER_INIT
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 7
+
+
+  C:022EH         LINE#         4
+  C:022EH         LINE#         5
+  C:022EH         LINE#         6
+  C:0231H         LINE#         9
+  C:0234H         LINE#         10
+  C:0237H         LINE#         11
+  C:023AH         LINE#         12
+  C:023CH         LINE#         13
+  C:023EH         LINE#         14
+  C:0240H         LINE#         16
+  C:0243H         LINE#         17
+  C:0246H         LINE#         18
+  C:0249H         LINE#         19
+  C:024BH         LINE#         20
+  C:024DH         LINE#         21
+  C:024FH         LINE#         23
+  C:0252H         LINE#         24
+  C:0254H         LINE#         25
+  C:0257H         LINE#         26
+  C:025AH         LINE#         27
+  C:025CH         LINE#         28
+  C:025EH         LINE#         29
+  C:0260H         LINE#         31
+  C:0262H         LINE#         32
+  -------         ENDPROC       TIMER_INIT
+  -------         PROC          TIMER0
+  C:01EDH         LINE#         40
+  C:020AH         LINE#         42
+  C:020DH         LINE#         43
+  C:0210H         LINE#         44
+  C:0213H         LINE#         46
+  -------         ENDPROC       TIMER0
+  -------         PROC          TIMER1
+  C:001AH         LINE#         48
+  C:001AH         LINE#         51
+  -------         ENDPROC       TIMER1
+  -------         PROC          TIMER2INT
+  C:0028H         LINE#         53
+  C:0028H         LINE#         55
+  C:002AH         LINE#         57
+  -------         ENDPROC       TIMER2INT
+  -------         ENDMOD        BSP_TIMER
+
+  -------         MODULE        TIMEOUT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:02B8H         PUBLIC        _TimeOut_Record
+  C:02D4H         PUBLIC        TimeOutDet_DecHandle
+  C:0341H         PUBLIC        TimeOut_BaseValue
+  C:0263H         PUBLIC        _TimeOutDet_Check
+  D:001DH         PUBLIC        InsBaseNum
+  C:001EH         PUBLIC        TimeOutDet_Init
+  -------         PROC          TIMEOUTDET_INIT
+  C:001EH         LINE#         6
+  C:001EH         LINE#         7
+  C:001EH         LINE#         8
+  C:0027H         LINE#         9
+  -------         ENDPROC       TIMEOUTDET_INIT
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 8
+
+
+  -------         PROC          TIMEOUTDET_DECHANDLE
+  C:02D4H         LINE#         11
+  C:02D4H         LINE#         12
+  C:02D4H         LINE#         13
+  C:02EDH         LINE#         14
+  -------         ENDPROC       TIMEOUTDET_DECHANDLE
+  -------         PROC          TIMEOUT_BASEVALUE
+  C:0341H         LINE#         16
+  C:0341H         LINE#         17
+  C:0341H         LINE#         18
+  C:0349H         LINE#         19
+  -------         ENDPROC       TIMEOUT_BASEVALUE
+  -------         PROC          _TIMEOUT_RECORD
+  D:0001H         SYMBOL        TimeOutPara
+  D:0021H         SYMBOL        timeoutvalue
+  C:02B8H         LINE#         21
+  C:02C0H         LINE#         23
+  C:02C0H         LINE#         24
+  C:02C6H         LINE#         25
+  -------         ENDPROC       _TIMEOUT_RECORD
+  -------         PROC          _TIMEOUTDET_CHECK
+  D:0021H         SYMBOL        TimeOutPara
+  C:0263H         LINE#         35
+  C:0269H         LINE#         36
+  C:0269H         LINE#         37
+  C:0292H         LINE#         38
+  -------         ENDPROC       _TIMEOUTDET_CHECK
+  -------         ENDMOD        TIMEOUT
+
+  -------         MODULE        ?C?ULCMP
+  C:002EH         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        ?C?LLDOPTR
+  C:003FH         PUBLIC        ?C?LLDOPTR
+  -------         ENDMOD        ?C?LLDOPTR
+
+  -------         MODULE        ?C?LSTPTR
+  C:006FH         PUBLIC        ?C?LSTPTR
+  -------         ENDMOD        ?C?LSTPTR
+
+  -------         MODULE        ?C?LSTOPTR
+  C:0089H         PUBLIC        ?C?LSTOPTR
+  -------         ENDMOD        ?C?LSTOPTR
+
+  -------         MODULE        ?C?LLDPTR0
+  C:00ADH         PUBLIC        ?C?LLDPTR0
+  -------         ENDMOD        ?C?LLDPTR0
+
+  -------         MODULE        ?C?ICALL
+  C:00CDH         PUBLIC        ?C?ICALL
+  C:00D1H         PUBLIC        ?C?ICALL2
+  -------         ENDMOD        ?C?ICALL
+
+  -------         MODULE        ?C?LLDIDATA
+  C:00D3H         PUBLIC        ?C?LLDIDATA
+  -------         ENDMOD        ?C?LLDIDATA
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/03/2019  17:03:02  PAGE 9
+
+
+
+  -------         MODULE        ?C?LLDXDATA
+  C:00DFH         PUBLIC        ?C?LLDXDATA
+  -------         ENDMOD        ?C?LLDXDATA
+
+  -------         MODULE        ?C?LLDPDATA
+  C:00EBH         PUBLIC        ?C?LLDPDATA
+  -------         ENDMOD        ?C?LLDPDATA
+
+  -------         MODULE        ?C?LLDCODE
+  C:00F7H         PUBLIC        ?C?LLDCODE
+  -------         ENDMOD        ?C?LLDCODE
+
+  -------         MODULE        ?C?LLDIDATA0
+  C:0107H         PUBLIC        ?C?LLDIDATA0
+  -------         ENDMOD        ?C?LLDIDATA0
+
+  -------         MODULE        ?C?LLDXDATA0
+  C:0114H         PUBLIC        ?C?LLDXDATA0
+  -------         ENDMOD        ?C?LLDXDATA0
+
+  -------         MODULE        ?C?LLDPDATA0
+  C:0120H         PUBLIC        ?C?LLDPDATA0
+  -------         ENDMOD        ?C?LLDPDATA0
+
+  -------         MODULE        ?C?LLDCODE0
+  C:012DH         PUBLIC        ?C?LLDCODE0
+  -------         ENDMOD        ?C?LLDCODE0
+
+  -------         MODULE        ?C?LSTIDATA
+  C:013DH         PUBLIC        ?C?LSTIDATA
+  -------         ENDMOD        ?C?LSTIDATA
+
+  -------         MODULE        ?C?LSTXDATA
+  C:0149H         PUBLIC        ?C?LSTXDATA
+  -------         ENDMOD        ?C?LSTXDATA
+
+  -------         MODULE        ?C?LSTPDATA
+  C:0155H         PUBLIC        ?C?LSTPDATA
+  -------         ENDMOD        ?C?LSTPDATA
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SCANF?SYSTEM
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  KEY_SCANF
+    MODULE:  .\Objects\system.obj (SYSTEM)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  KEY_SCANF
+    MODULE:  .\Objects\system.obj (SYSTEM)
+    ADDRESS: 0307H
+
+Program Size: data=38.0 xdata=0 code=849
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

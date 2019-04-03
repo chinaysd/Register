@@ -1,0 +1,5 @@
+---- t_KEY_MSG Matches (4 in 2 files) ----
+key.c (C:\Users\Administrator\Desktop\key\bsp\key):static t_KEY_MSG Key_Msg;
+key.c (C:\Users\Administrator\Desktop\key\bsp\key):	@return :t_KEY_MSG 类型的消息，消息集在t_KEY_MSG中定义
+key.c (C:\Users\Administrator\Desktop\key\bsp\key):t_KEY_MSG Key_Scan(void){
+key.h (C:\Users\Administrator\Desktop\key\bsp\key):}t_KEY_MSG;
